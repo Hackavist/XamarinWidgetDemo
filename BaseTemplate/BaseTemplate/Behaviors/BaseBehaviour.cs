@@ -2,7 +2,7 @@
 using TemplateFoundation.Commands.WeakEventManager;
 using Xamarin.Forms;
 
-namespace BaseTemplate.Behaviors
+namespace WidgetDemo.Behaviors
 {
     public class BehaviorBase<T> : Behavior<T>
         where T : BindableObject

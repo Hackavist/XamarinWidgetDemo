@@ -9,7 +9,6 @@ namespace TemplateFoundation.Validation.Implementations
     {
         public bool CleanOnChange { get; set; } = true;
 
-        T _value;
         public T Value
         {
             get => _value;
@@ -22,6 +21,8 @@ namespace TemplateFoundation.Validation.Implementations
             }
         }
 
+        private T _value;
+
         public List<IValidationRule<T>> ValidationRules => new List<IValidationRule<T>>();
 
         public List<string> Errors { get; set; } = new List<string>();
@@ -33,13 +34,14 @@ namespace TemplateFoundation.Validation.Implementations
         {
             Errors.Clear();
 
-            IEnumerable<string> errors = ValidationRules.Where(v => !v.Check(Value)).Select(v => v.ValidationMessage);
+            var errors = ValidationRules.Where(v => !v.Check(Value)).Select(v => v.ValidationMessage);
 
             Errors = errors.ToList();
             IsValid = !Errors.Any();
 
-            return this.IsValid;
+            return IsValid;
         }
+
         public override string ToString()
         {
             return $"{Value}";

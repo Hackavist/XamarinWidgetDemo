@@ -1,6 +1,6 @@
 ﻿using TemplateFoundation.ViewModelFoundation;
 
-namespace BaseTemplate.ViewModels
+namespace WidgetDemo.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

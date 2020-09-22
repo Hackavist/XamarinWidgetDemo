@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace BaseTemplate.Pages
+namespace WidgetDemo.Pages
 {
     public partial class MainPage : ContentPage
     {
@@ -12,12 +11,9 @@ namespace BaseTemplate.Pages
             InitializeComponent();
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        void Button_Clicked(object sender, EventArgs e)
         {
 
-            int i = 0;
-
-            var x = 10 / i;
         }
     }
 }

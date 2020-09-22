@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace BaseTemplate.Services.FileSystemService
+namespace WidgetDemo.Services.FileSystemService
 {
     public interface IFileSystemService
     {

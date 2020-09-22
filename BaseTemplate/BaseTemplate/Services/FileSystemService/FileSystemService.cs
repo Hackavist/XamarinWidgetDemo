@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
-namespace BaseTemplate.Services.FileSystemService
+namespace WidgetDemo.Services.FileSystemService
 {
     public class FileSystemService : IFileSystemService
     {

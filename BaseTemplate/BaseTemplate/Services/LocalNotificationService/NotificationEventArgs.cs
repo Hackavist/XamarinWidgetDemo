@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BaseTemplate.Services.LocalNotificationService
+namespace WidgetDemo.Services.LocalNotificationService
 {
     public class NotificationEventArgs : EventArgs
     {

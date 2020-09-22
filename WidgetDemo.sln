@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseTemplate.Android", "BaseTemplate\BaseTemplate.Android\BaseTemplate.Android.csproj", "{228F5017-52A0-404C-AE89-BF4EABEBCD2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetDemo.Android", "BaseTemplate\BaseTemplate.Android\WidgetDemo.Android.csproj", "{228F5017-52A0-404C-AE89-BF4EABEBCD2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseTemplate.iOS", "BaseTemplate\BaseTemplate.iOS\BaseTemplate.iOS.csproj", "{F1E21F2E-4A53-4DDA-A198-1B778CAD73C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WidgetDemo.iOS", "BaseTemplate\BaseTemplate.iOS\WidgetDemo.iOS.csproj", "{F1E21F2E-4A53-4DDA-A198-1B778CAD73C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseTemplate", "BaseTemplate\BaseTemplate\BaseTemplate.csproj", "{C632F893-3A9D-419A-B680-3CF5940D6921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WidgetDemo", "BaseTemplate\BaseTemplate\WidgetDemo.csproj", "{C632F893-3A9D-419A-B680-3CF5940D6921}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateFoundation", "TemplateFoundation\TemplateFoundation.csproj", "{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateFoundation", "TemplateFoundation\TemplateFoundation.csproj", "{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BaseTemplate.Droid.Services.LocalNotificationService
+namespace WidgetDemo.Droid.Services.LocalNotificationService
 {
     public class LocalNotification
     {

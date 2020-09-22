@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using BaseTemplate.Constants;
 using SQLite;
+using WidgetDemo.Constants;
 using Xamarin.Essentials;
 
-namespace BaseTemplate.Services.LocalDatabaseService
+namespace WidgetDemo.Services.LocalDatabaseService
 {
     public class LocalDatabaseService : ILocalDatabaseService
     {

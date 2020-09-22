@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
-using BaseTemplate.iOS.Services.LocalNotificationService;
-using BaseTemplate.Services.LocalNotificationService;
 using Foundation;
 using UserNotifications;
+using WidgetDemo.iOS.Services.LocalNotificationService;
+using WidgetDemo.Services.LocalNotificationService;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(NotifierImplementation))]
 
-namespace BaseTemplate.iOS.Services.LocalNotificationService
+namespace WidgetDemo.iOS.Services.LocalNotificationService
 {
     public class NotifierImplementation : ILocalNotificationService
     {

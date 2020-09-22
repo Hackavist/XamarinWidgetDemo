@@ -8,8 +8,8 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>BaseTemplate.Droid</RootNamespace>
-    <AssemblyName>BaseTemplate.Android</AssemblyName>
+    <RootNamespace>WidgetDemo.Droid</RootNamespace>
+    <AssemblyName>WidgetDemo.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidDexTool>d8</AndroidDexTool>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,6 +52,7 @@
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AotAssemblies>true</AotAssemblies>
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -119,9 +121,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\BaseTemplate\BaseTemplate.csproj">
-      <Project>{41206CAC-8084-4026-931A-87999F8802B2}</Project>
-      <Name>BaseTemplate</Name>
+    <ProjectReference Include="..\BaseTemplate\WidgetDemo.csproj">
+      <Project>{C632F893-3A9D-419A-B680-3CF5940D6921}</Project>
+      <Name>WidgetDemo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

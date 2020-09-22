@@ -1,9 +1,9 @@
 ﻿using System;
-using BaseTemplate.Services.LocalNotificationService;
 using UserNotifications;
+using WidgetDemo.Services.LocalNotificationService;
 using Xamarin.Forms;
 
-namespace BaseTemplate.iOS.Services.LocalNotificationService
+namespace WidgetDemo.iOS.Services.LocalNotificationService
 {
     public class IosNotificationReceiver : UNUserNotificationCenterDelegate
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BaseTemplate.Models
+﻿namespace WidgetDemo.Models
 {
     public abstract class BaseModel
     {

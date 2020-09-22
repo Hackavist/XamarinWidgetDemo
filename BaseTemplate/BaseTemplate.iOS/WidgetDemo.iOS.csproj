@@ -10,9 +10,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BaseTemplate.iOS</RootNamespace>
+    <RootNamespace>WidgetDemo.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>BaseTemplate.iOS</AssemblyName>
+    <AssemblyName>WidgetDemo.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>automatic</ProvisioningType>
@@ -156,9 +156,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\BaseTemplate\BaseTemplate.csproj">
-      <Project>{41206CAC-8084-4026-931A-87999F8802B2}</Project>
-      <Name>BaseTemplate</Name>
+    <ProjectReference Include="..\BaseTemplate\WidgetDemo.csproj">
+      <Project>{C632F893-3A9D-419A-B680-3CF5940D6921}</Project>
+      <Name>WidgetDemo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

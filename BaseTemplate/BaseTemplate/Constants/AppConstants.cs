@@ -1,5 +1,4 @@
-﻿using System;
-namespace BaseTemplate.Constants
+﻿namespace WidgetDemo.Constants
 {
     public static class AppConstants
     {

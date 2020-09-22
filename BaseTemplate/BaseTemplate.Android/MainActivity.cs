@@ -1,14 +1,14 @@
-﻿using Acr.UserDialogs;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.OS;
-using System;
-using System.Threading.Tasks;
-using BaseTemplate.Constants;
-using System.Diagnostics;
+using Android.Runtime;
+using WidgetDemo.Constants;
 
-namespace BaseTemplate.Droid
+namespace WidgetDemo.Droid
 {
     [Activity(Label = "BaseTemplate", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, LaunchMode = LaunchMode.SingleTop)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

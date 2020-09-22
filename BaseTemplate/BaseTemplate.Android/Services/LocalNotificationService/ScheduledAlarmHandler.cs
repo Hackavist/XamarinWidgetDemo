@@ -1,10 +1,10 @@
 using System.IO;
 using System.Xml.Serialization;
 using Android.Content;
-using BaseTemplate.Services.LocalNotificationService;
+using WidgetDemo.Services.LocalNotificationService;
 using Xamarin.Forms;
 
-namespace BaseTemplate.Droid.Services.LocalNotificationService
+namespace WidgetDemo.Droid.Services.LocalNotificationService
 {
     /// <summary>
     ///     Broadcast receiver

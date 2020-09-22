@@ -1,14 +1,14 @@
 ﻿using System.Globalization;
 using System.Threading;
-using BaseTemplate.Resources;
-using BaseTemplate.Services.FileSystemService;
-using BaseTemplate.Services.LocalDatabaseService;
-using BaseTemplate.ViewModels;
 using TemplateFoundation.IOCFoundation;
 using TemplateFoundation.Navigation.NavigationContainers;
+using WidgetDemo.Resources;
+using WidgetDemo.Services.FileSystemService;
+using WidgetDemo.Services.LocalDatabaseService;
+using WidgetDemo.ViewModels;
 using Xamarin.Forms;
 
-namespace BaseTemplate
+namespace WidgetDemo
 {
     public partial class App : Application
     {

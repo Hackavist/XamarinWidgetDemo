@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace BaseTemplate.Services.LocalDatabaseService
+namespace WidgetDemo.Services.LocalDatabaseService
 {
     public interface ILocalDatabaseService
     {
