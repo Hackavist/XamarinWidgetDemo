@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pagefoundation:BaseContentPage
+    x:Class="WidgetDemo.Pages.NoteDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pagefoundation="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="10"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Entry Text="{Binding SelectedNote.NoteTitle}" />
+            <BoxView
+                BackgroundColor="#47545d"
+                HeightRequest="5"
+                HorizontalOptions="Fill" />
+            <Editor
+                Margin="0,0,0,20"
+                AutoSize="TextChanges"
+                FontSize="Medium"
+                IsSpellCheckEnabled="True"
+                Placeholder="Note Description"
+                Text="{Binding SelectedNote.Description}">
+                <Editor.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>All</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Editor.Keyboard>
+            </Editor>
+        </StackLayout>
+    </ContentPage.Content>
+</pagefoundation:BaseContentPage>

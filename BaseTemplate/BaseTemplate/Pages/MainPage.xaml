@@ -1,16 +1,85 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
+<pageFoundation:BaseContentPage
     x:Class="WidgetDemo.Pages.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pageFoundation="clr-namespace:TemplateFoundation.PageFoundation;assembly=TemplateFoundation"
+    Title="{Binding Title}">
+    <pageFoundation:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EmptyLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="NoteTitleLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#3498Db" />
+            </Style>
+            <Style x:Key="DateTimeLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#364047" />
+            </Style>
+            <Style x:Key="DescriptionLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Caption" />
+                <Setter Property="TextColor" Value="#47545d" />
+            </Style>
+        </ResourceDictionary>
+    </pageFoundation:BaseContentPage.Resources>
+    <pageFoundation:BaseContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding NavigateToAddingPage}"
+            IconImageSource="plus.png"
+            Order="Primary"
+            Priority="0"
+            Text="Add Note" />
+    </pageFoundation:BaseContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to xamarin kick"
-                VerticalOptions="CenterAndExpand" />
-            <Button Clicked="Button_Clicked" Text="click me" />
 
-        </StackLayout>
+        <CollectionView
+            Margin="10"
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemsSource="{Binding Notes}"
+            SelectedItem="{Binding SelectedNote}"
+            SelectionChangedCommand="{Binding ItemSelectedCommand}"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.EmptyView>
+                <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Label Style="{StaticResource EmptyLabelStyle}" Text="Click on the plus icon to add a new note" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*,*" RowDefinitions="*,*">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{StaticResource NoteTitleLabelStyle}"
+                            Text="{Binding NoteTitle}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Style="{StaticResource DateTimeLabelStyle}"
+                            Text="{Binding DateTime}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource DescriptionLabelStyle}"
+                            Text="{Binding Description}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </ContentPage.Content>
-</ContentPage>
+</pageFoundation:BaseContentPage>

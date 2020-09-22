@@ -119,7 +119,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\plus.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseTemplate\WidgetDemo.csproj">
       <Project>{C632F893-3A9D-419A-B680-3CF5940D6921}</Project>

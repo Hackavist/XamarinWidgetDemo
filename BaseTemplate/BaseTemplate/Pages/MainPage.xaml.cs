@@ -1,19 +1,13 @@
-﻿using System;
-
+﻿using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace WidgetDemo.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         public MainPage()
         {
-            InitializeComponent();
-        }
-
-        void Button_Clicked(object sender, EventArgs e)
-        {
-
+            InitializeComponent(); 
         }
     }
 }
