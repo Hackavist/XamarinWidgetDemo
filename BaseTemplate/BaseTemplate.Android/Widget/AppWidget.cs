@@ -11,8 +11,9 @@ namespace WidgetDemo.Droid.Widget
     [MetaData("android.appwidget.provider", Resource = "@xml/widget_info")]
     public class AppWidget : AppWidgetProvider
     {
-        public const string TOAST_ACTION = "com.nourelgafy.widgetdemo.TOAST_ACTION";
-        public const string EXTRA_ITEM = "com.nourelgafy.widgetdemo.EXTRA_ITEM";
+        public const string NavigationAction = "com.nourelgafy.widgetdemo.NavigationAction";
+        public const string ExtraItem = "com.nourelgafy.widgetdemo.EXTRA_ITEM";
+        public const string PageNumber = "com.nourelgafy.widgetdemo.PageNumber";
 
         public override void OnUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
         {
@@ -32,14 +33,14 @@ namespace WidgetDemo.Droid.Widget
                 remoteViews.SetEmptyView(Resource.Id.list_view, Resource.Id.empty_view);
 
                 //setting up the pending intent template to be filled by each list item on click
-                Intent toastIntent = new Intent(context, typeof(AppWidget));
-                toastIntent.SetAction(TOAST_ACTION);
-                toastIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetIds[i]);
-                toastIntent.SetData(Uri.Parse(intent.ToUri(IntentUriType.Scheme)));
+                Intent navigationIntent = new Intent(context, typeof(AppWidget));
+                navigationIntent.SetAction(NavigationAction);
+                navigationIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetIds[i]);
+                navigationIntent.SetData(Uri.Parse(intent.ToUri(IntentUriType.Scheme)));
 
                 //Pending intent to be used as a template
-                PendingIntent toastPendingIntent = PendingIntent.GetBroadcast(context, 0, toastIntent, PendingIntentFlags.UpdateCurrent);
-                remoteViews.SetPendingIntentTemplate(Resource.Id.list_view, toastPendingIntent);
+                PendingIntent navigationPendingIntent = PendingIntent.GetBroadcast(context, 0, navigationIntent, PendingIntentFlags.UpdateCurrent);
+                remoteViews.SetPendingIntentTemplate(Resource.Id.list_view, navigationPendingIntent);
 
                 appWidgetManager.UpdateAppWidget(appWidgetIds[i], remoteViews);
             }
@@ -49,11 +50,15 @@ namespace WidgetDemo.Droid.Widget
         public override void OnReceive(Context context, Intent intent)
         {
             AppWidgetManager widgetManager = AppWidgetManager.GetInstance(context);
-            if (TOAST_ACTION.Equals(intent.Action))
+            if (NavigationAction.Equals(intent.Action))
             {
-                var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
-                int viewindex = intent.GetIntExtra(EXTRA_ITEM, 0);
-                Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short).Show();
+                //var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
+                //Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short)?.Show();
+                int noteIndex = intent.GetIntExtra(ExtraItem, 0);
+                Intent openAppIntent = new Intent(context, typeof(MainActivity));
+                openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
+                openAppIntent.SetFlags(ActivityFlags.NewTask);
+                context.StartActivity(openAppIntent);
             }
             base.OnReceive(context, intent);
         }

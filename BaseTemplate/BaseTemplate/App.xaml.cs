@@ -62,7 +62,7 @@ namespace WidgetDemo
 
         private void SetStartPage(string pageName = PageName)
         {
-            if (pageName != PageName)
+            if (!PageName.Equals(pageName))
             {
                 Page page = ViewModelResolver.ResolveViewModel<MainViewModel>(pageName);
                 NavigationPageContainer navigationContainer = new NavigationPageContainer(page);
