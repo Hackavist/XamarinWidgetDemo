@@ -1,16 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@android:color/white"
-    android:padding="5dip">
-    <ListView 
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#1E90FF"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_weight="4"
+            android:textFontWeight="500"
+            android:textColor="@android:color/white"
+            android:text="Notes"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="Refresh Button"
+            android:id="@+id/refreshBTN"
+            android:src="@drawable/arrows"/>
+
+    </LinearLayout>
+    <ListView
+        android:padding="5dip"
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:loopViews="true" />
-    <TextView 
+    <TextView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,4 +45,4 @@
         android:textStyle="bold"
         android:text="There are no notes yet"
         android:textSize="20sp" />
-</FrameLayout>
+</LinearLayout>

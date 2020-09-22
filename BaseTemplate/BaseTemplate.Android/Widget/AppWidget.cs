@@ -4,16 +4,19 @@ using Android.Content;
 using Android.Net;
 using Android.Widget;
 
+using Java.Lang;
+
 namespace WidgetDemo.Droid.Widget
 {
     [BroadcastReceiver(Label = "HellApp Widget")]
-    [IntentFilter(new string[] { "android.appwidget.action.APPWIDGET_UPDATE" })]
+    [IntentFilter(new[] { "android.appwidget.action.APPWIDGET_UPDATE" })]
     [MetaData("android.appwidget.provider", Resource = "@xml/widget_info")]
     public class AppWidget : AppWidgetProvider
     {
         public const string NavigationAction = "com.nourelgafy.widgetdemo.NavigationAction";
         public const string ExtraItem = "com.nourelgafy.widgetdemo.EXTRA_ITEM";
         public const string PageNumber = "com.nourelgafy.widgetdemo.PageNumber";
+        public const string RefreshAction = "com.nourelgafy.widgetdemo.RefreshAction";
 
         public override void OnUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
         {
@@ -39,27 +42,48 @@ namespace WidgetDemo.Droid.Widget
                 navigationIntent.SetData(Uri.Parse(intent.ToUri(IntentUriType.Scheme)));
 
                 //Pending intent to be used as a template
-                PendingIntent navigationPendingIntent = PendingIntent.GetBroadcast(context, 0, navigationIntent, PendingIntentFlags.UpdateCurrent);
+                PendingIntent navigationPendingIntent =
+                    PendingIntent.GetBroadcast(context, 0, navigationIntent, PendingIntentFlags.UpdateCurrent);
                 remoteViews.SetPendingIntentTemplate(Resource.Id.list_view, navigationPendingIntent);
+
+                //refresh button click action
+                Intent refreshIntent = new Intent(context, typeof(AppWidget));
+                refreshIntent.SetAction(RefreshAction);
+                remoteViews.SetOnClickPendingIntent(Resource.Id.refreshBTN,
+                    PendingIntent.GetBroadcast(context, 0, refreshIntent, 0));
 
                 appWidgetManager.UpdateAppWidget(appWidgetIds[i], remoteViews);
             }
+
             base.OnUpdate(context, appWidgetManager, appWidgetIds);
         }
 
         public override void OnReceive(Context context, Intent intent)
         {
             AppWidgetManager widgetManager = AppWidgetManager.GetInstance(context);
-            if (NavigationAction.Equals(intent.Action))
+            switch (intent.Action)
             {
-                //var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
-                //Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short)?.Show();
-                int noteIndex = intent.GetIntExtra(ExtraItem, 0);
-                Intent openAppIntent = new Intent(context, typeof(MainActivity));
-                openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
-                openAppIntent.SetFlags(ActivityFlags.NewTask);
-                context.StartActivity(openAppIntent);
+                case NavigationAction:
+                    {
+                        //var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
+                        //Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short)?.Show();
+                        int noteIndex = intent.GetIntExtra(ExtraItem, 0);
+                        Intent openAppIntent = new Intent(context, typeof(MainActivity));
+                        openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
+                        openAppIntent.SetFlags(ActivityFlags.NewTask);
+                        context.StartActivity(openAppIntent);
+                        break;
+                    }
+                case RefreshAction:
+                    {
+                        AppWidgetManager appWidgetManager = AppWidgetManager.GetInstance(context);
+                        var ids = appWidgetManager?.GetAppWidgetIds(new ComponentName(context,
+                            Class.FromType(typeof(AppWidget)).Name));
+                        OnUpdate(context, appWidgetManager, ids);
+                        break;
+                    }
             }
+
             base.OnReceive(context, intent);
         }
     }
