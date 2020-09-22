@@ -44,7 +44,7 @@ namespace WidgetDemo.ViewModels
             {
                 _database = Ioc.Container.Resolve<ILocalDatabaseService>() as LocalDatabaseService;
                 if (!LocalDatabaseService.DbInitialized) await InitializeDb();
-                Notes = new ObservableCollection<Note>(await _database.GetAll<Note>());
+                if (_database != null) Notes = new ObservableCollection<Note>(await _database.GetAll<Note>());
             });
         }
 

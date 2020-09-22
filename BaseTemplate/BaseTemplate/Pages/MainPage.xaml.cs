@@ -7,7 +7,7 @@ namespace WidgetDemo.Pages
     {
         public MainPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
     }
 }
