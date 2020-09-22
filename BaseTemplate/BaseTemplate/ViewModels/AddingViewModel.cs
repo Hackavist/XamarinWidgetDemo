@@ -34,7 +34,7 @@ namespace WidgetDemo.ViewModels
             if (string.IsNullOrWhiteSpace(NoteTitle))
                 await NavigationService.DisplayAlert("Invalid Note", "You can't leave the title empty", "Ok");
             await database.Insert(new Note
-                {NoteTitle = NoteTitle, Description = NoteDescription, NoteDateTime = DateTime.Now});
+            { NoteTitle = NoteTitle, Description = NoteDescription, NoteDateTime = DateTime.Now });
             await NavigationService.PopPageModel(true);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace WidgetDemo.Models
 {
-    public abstract class BaseModel:INotifyPropertyChanged
+    public abstract class BaseModel : INotifyPropertyChanged
     {
         //The id is set to int just for the simplicity of the demo
         public int Id { get; set; }
