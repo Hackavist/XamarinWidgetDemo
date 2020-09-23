@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using Android.Appwidget;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-
 using Java.Lang;
-
 using TemplateFoundation.IOCFoundation;
-
 using WidgetDemo.Models;
 using WidgetDemo.Services.LocalDatabaseService;
 
@@ -58,7 +54,10 @@ namespace WidgetDemo.Droid.Widget
             return remoteView;
         }
 
-        public void OnCreate() { }
+        public void OnCreate()
+        {
+
+        }
 
         public void OnDataSetChanged()
         {

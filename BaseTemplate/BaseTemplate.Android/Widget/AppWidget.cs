@@ -3,11 +3,12 @@ using Android.Appwidget;
 using Android.Content;
 using Android.Net;
 using Android.Widget;
+
 using Java.Lang;
 
 namespace WidgetDemo.Droid.Widget
 {
-    [BroadcastReceiver(Label = "HellApp Widget")]
+    [BroadcastReceiver(Label = "Widget Demo")]
     [IntentFilter(new[] { "android.appwidget.action.APPWIDGET_UPDATE" })]
     [MetaData("android.appwidget.provider", Resource = "@xml/widget_info")]
     public class AppWidget : AppWidgetProvider
@@ -17,8 +18,11 @@ namespace WidgetDemo.Droid.Widget
         public const string PageNumber = "com.nourelgafy.widgetdemo.PageNumber";
         public const string RefreshAction = "com.nourelgafy.widgetdemo.RefreshAction";
 
+        private static AppWidgetManager currentAppWidgetManager;
+
         public override void OnUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
         {
+            currentAppWidgetManager = appWidgetManager;
             for (int i = 0; i < appWidgetIds.Length; i++)
             {
                 //the service intent which will provide the views for the listview
@@ -29,7 +33,7 @@ namespace WidgetDemo.Droid.Widget
 
                 // Gets the remote object of the app widget
                 RemoteViews remoteViews = new RemoteViews(context.PackageName, Resource.Layout.widget_layout);
-                //provide the listview with the needed adapter through the service
+                //provide the listView with the needed adapter through the service
                 remoteViews.SetRemoteAdapter(Resource.Id.list_view, intent);
                 //Set the empty view in case the collection is empty
                 remoteViews.SetEmptyView(Resource.Id.list_view, Resource.Id.empty_view);
@@ -41,15 +45,15 @@ namespace WidgetDemo.Droid.Widget
                 navigationIntent.SetData(Uri.Parse(intent.ToUri(IntentUriType.Scheme)));
 
                 //Pending intent to be used as a template
-                PendingIntent navigationPendingIntent =
-                    PendingIntent.GetBroadcast(context, 0, navigationIntent, PendingIntentFlags.UpdateCurrent);
+                PendingIntent navigationPendingIntent = PendingIntent.GetBroadcast(context, 0, navigationIntent, PendingIntentFlags.UpdateCurrent);
                 remoteViews.SetPendingIntentTemplate(Resource.Id.list_view, navigationPendingIntent);
 
                 //refresh button click action
                 Intent refreshIntent = new Intent(context, typeof(AppWidget));
                 refreshIntent.SetAction(RefreshAction);
-                remoteViews.SetOnClickPendingIntent(Resource.Id.refreshBTN,
-                    PendingIntent.GetBroadcast(context, 0, refreshIntent, 0));
+                refreshIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetIds[i]);
+                refreshIntent.SetData(Uri.Parse(intent.ToUri(IntentUriType.Scheme)));
+                remoteViews.SetOnClickPendingIntent(Resource.Id.refreshBTN, PendingIntent.GetBroadcast(context, 0, refreshIntent, 0));
 
                 appWidgetManager.UpdateAppWidget(appWidgetIds[i], remoteViews);
             }
@@ -73,10 +77,8 @@ namespace WidgetDemo.Droid.Widget
                     }
                 case RefreshAction:
                     {
-                        AppWidgetManager appWidgetManager = AppWidgetManager.GetInstance(context);
-                        var ids = appWidgetManager?.GetAppWidgetIds(new ComponentName(context,
-                            Class.FromType(typeof(AppWidget)).Name));
-                        OnUpdate(context, appWidgetManager, ids);
+                        int id = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, 0);
+                        currentAppWidgetManager?.NotifyAppWidgetViewDataChanged(id, Resource.Id.list_view);
                         break;
                     }
             }

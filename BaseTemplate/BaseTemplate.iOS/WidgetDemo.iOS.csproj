@@ -165,6 +165,7 @@
       <IsAppExtension>true</IsAppExtension>
       <Project>{BF51C5C2-5121-4C31-894B-F3E11B52234E}</Project>
       <Name>IosWidget</Name>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
