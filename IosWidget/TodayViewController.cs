@@ -12,7 +12,7 @@ namespace IosWidget
     public partial class TodayViewController : UIViewController,
     INCWidgetProviding
     {
-        List<Note> _notesList = new List<Note>();        
+        List<Note> _notesList = new List<Note>();
         protected TodayViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -52,7 +52,7 @@ namespace IosWidget
 
         [Export("widgetActiveDisplayModeDidChange:withMaximumSize:")]
         public void WidgetActiveDisplayModeDidChange(NCWidgetDisplayMode activeDisplayMode, CGSize maxSize)
-        {  
+        {
             int _notesListCount = _notesList.Count < 5 ? _notesList.Count : 5;
             if (_notesListCount == 0) _notesListCount += 1;
             PreferredContentSize = activeDisplayMode == NCWidgetDisplayMode.Expanded ? new CGSize(maxSize.Width, 60.0f * _notesListCount) : maxSize;
@@ -97,7 +97,7 @@ namespace IosWidget
         */
         void SetDatasource()
         {
-            NotesTableView.Source = new TableSource(_notesList,base.ExtensionContext);
+            NotesTableView.Source = new TableSource(_notesList, base.ExtensionContext);
             NotesTableView.RowHeight = UITableView.AutomaticDimension;
             ExtensionContext.SetWidgetLargestAvailableDisplayMode(NCWidgetDisplayMode.Expanded);
             NotesTableView.ReloadData();

@@ -18,7 +18,7 @@ namespace IosWidget
         }
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            _extensionContext.OpenUrl(new NSUrl("notesapp://"),null);
+            _extensionContext.OpenUrl(new NSUrl("notesapp://"), null);
             tableView.DeselectRow(indexPath, true);
         }
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
