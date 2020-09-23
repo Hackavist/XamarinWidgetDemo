@@ -3,7 +3,6 @@ using Android.Appwidget;
 using Android.Content;
 using Android.Net;
 using Android.Widget;
-
 using Java.Lang;
 
 namespace WidgetDemo.Droid.Widget
@@ -65,8 +64,6 @@ namespace WidgetDemo.Droid.Widget
             {
                 case NavigationAction:
                     {
-                        //var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
-                        //Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short)?.Show();
                         int noteIndex = intent.GetIntExtra(ExtraItem, 0);
                         Intent openAppIntent = new Intent(context, typeof(MainActivity));
                         openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
