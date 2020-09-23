@@ -61,6 +61,11 @@ namespace WidgetDemo.ViewModels
                 {
                     NoteTitle = "App Enhancement Ideas", NoteDateTime = DateTime.Now.AddDays(2.0).AddHours(3.0),
                     Description = "we can add support for dark theme"
+                },
+                new Note
+                {
+                    NoteTitle = "Buy Apple dev account", NoteDateTime = DateTime.Now.AddDays(2.0).AddHours(3.0),
+                    Description = "Buying one will make your life easier and simpler regarding ios development"
                 }
             });
         }

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WidgetDemo", "BaseTemplate\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateFoundation", "TemplateFoundation\TemplateFoundation.csproj", "{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IosWidget", "IosWidget\IosWidget.csproj", "{BF51C5C2-5121-4C31-894B-F3E11B52234E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}.Release|iPhone.Build.0 = Release|Any CPU
 		{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{902D1E2F-17A1-40E9-9B68-99C6D1D5DE6B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|Any CPU.Build.0 = Debug|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|iPhone.Build.0 = Debug|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|Any CPU.Build.0 = Release|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|iPhone.ActiveCfg = Release|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|iPhone.Build.0 = Release|iPhone
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{BF51C5C2-5121-4C31-894B-F3E11B52234E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

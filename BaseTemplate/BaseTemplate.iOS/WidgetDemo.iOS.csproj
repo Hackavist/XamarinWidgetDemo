@@ -161,6 +161,11 @@
       <Project>{C632F893-3A9D-419A-B680-3CF5940D6921}</Project>
       <Name>WidgetDemo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\IosWidget\IosWidget.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{BF51C5C2-5121-4C31-894B-F3E11B52234E}</Project>
+      <Name>IosWidget</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\plus.png" />
