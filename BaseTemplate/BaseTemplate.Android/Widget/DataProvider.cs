@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Android.Appwidget;
@@ -7,12 +6,12 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 
+using Java.Lang;
+
 using TemplateFoundation.IOCFoundation;
 
 using WidgetDemo.Models;
 using WidgetDemo.Services.LocalDatabaseService;
-
-using Object = Java.Lang.Object;
 
 namespace WidgetDemo.Droid.Widget
 {
@@ -41,7 +40,6 @@ namespace WidgetDemo.Droid.Widget
             return _notesList[position].Id;
         }
 
-
         public RemoteViews GetViewAt(int position)
         {
             RemoteViews remoteView = new RemoteViews(_context.PackageName, Resource.Layout.widget_item);
@@ -60,9 +58,7 @@ namespace WidgetDemo.Droid.Widget
             return remoteView;
         }
 
-        public void OnCreate()
-        {
-        }
+        public void OnCreate() { }
 
         public void OnDataSetChanged()
         {
@@ -72,7 +68,6 @@ namespace WidgetDemo.Droid.Widget
                     _notesList = await database.GetAll<Note>();
             });
         }
-
 
         public void OnDestroy()
         {

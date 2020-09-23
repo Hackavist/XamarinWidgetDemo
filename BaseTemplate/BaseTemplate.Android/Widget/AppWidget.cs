@@ -3,13 +3,12 @@ using Android.Appwidget;
 using Android.Content;
 using Android.Net;
 using Android.Widget;
-
 using Java.Lang;
 
 namespace WidgetDemo.Droid.Widget
 {
     [BroadcastReceiver(Label = "HellApp Widget")]
-    [IntentFilter(new[] { "android.appwidget.action.APPWIDGET_UPDATE" })]
+    [IntentFilter(new[] {"android.appwidget.action.APPWIDGET_UPDATE"})]
     [MetaData("android.appwidget.provider", Resource = "@xml/widget_info")]
     public class AppWidget : AppWidgetProvider
     {
@@ -64,24 +63,22 @@ namespace WidgetDemo.Droid.Widget
             switch (intent.Action)
             {
                 case NavigationAction:
-                    {
-                        //var appWidgetid = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
-                        //Toast.MakeText(context, $"touched index number {viewindex}", ToastLength.Short)?.Show();
-                        int noteIndex = intent.GetIntExtra(ExtraItem, 0);
-                        Intent openAppIntent = new Intent(context, typeof(MainActivity));
-                        openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
-                        openAppIntent.SetFlags(ActivityFlags.NewTask);
-                        context.StartActivity(openAppIntent);
-                        break;
-                    }
+                {
+                    int noteIndex = intent.GetIntExtra(ExtraItem, 0);
+                    Intent openAppIntent = new Intent(context, typeof(MainActivity));
+                    openAppIntent.PutExtra(PageNumber, $"NoteIndex/{noteIndex}");
+                    openAppIntent.SetFlags(ActivityFlags.NewTask);
+                    context.StartActivity(openAppIntent);
+                    break;
+                }
                 case RefreshAction:
-                    {
-                        AppWidgetManager appWidgetManager = AppWidgetManager.GetInstance(context);
-                        var ids = appWidgetManager?.GetAppWidgetIds(new ComponentName(context,
-                            Class.FromType(typeof(AppWidget)).Name));
-                        OnUpdate(context, appWidgetManager, ids);
-                        break;
-                    }
+                {
+                    AppWidgetManager appWidgetManager = AppWidgetManager.GetInstance(context);
+                    var ids = appWidgetManager?.GetAppWidgetIds(new ComponentName(context,
+                        Class.FromType(typeof(AppWidget)).Name));
+                    OnUpdate(context, appWidgetManager, ids);
+                    break;
+                }
             }
 
             base.OnReceive(context, intent);
